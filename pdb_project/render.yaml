@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pdb_project
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn pdb_project.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: pdb_project.settings
+      - key: PYTHON_VERSION
+        value: 3.12.6
